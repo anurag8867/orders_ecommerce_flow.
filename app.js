@@ -19,6 +19,9 @@ function main() {
     }));
     app.use(bodyParser.json());
 
+    /**
+     * To Create a user
+     */
     app.post('/user', async (req, res) => {
         try {
             let missingField = req.body.email ? null : 'email';
@@ -37,6 +40,9 @@ function main() {
         }
     });
 
+    /**
+     * To fetch all the users created in DB
+     */
     app.get('/users', async (req, res) => {
         try {
             let resp = await authService.getUsers();
@@ -49,6 +55,9 @@ function main() {
         }
     });
 
+    /**
+     * To save inventories in DB
+     */
     app.post('/inventory', async (req, res) => {
         try {
             let missingField = req.body.name ? req.body.count ? null : 'count' : 'name';
@@ -73,6 +82,9 @@ function main() {
         }
     });
 
+    /**
+     * To fetch all the inventories in DB
+     */
     app.get('/inventory', async (req, res) => {
         try {
             let resp = await productService.getProducts();
@@ -85,6 +97,9 @@ function main() {
         }
     });
 
+    /**
+     * To place an order
+     */
     app.post('/order', async (req, res) => {
         try {
             let missingField = req.body.productId ? req.body.userId ? null : 'userId' : 'productId';
@@ -103,6 +118,9 @@ function main() {
         }
     });
 
+    /**
+     * To check all the palced orders by the user
+     */
     app.get('/order', async (req, res) => {
         try {
             let missingField = req.body.userId ? null : 'userId';

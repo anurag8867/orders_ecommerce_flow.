@@ -1,8 +1,15 @@
 # orders_ecommerce_flow
 
+    # DBMS :
+        * SQL(MYSQL)
+        * ORM Sequelize
+
     # Language : JavaScript
             * All the functions are accomadated with meaning full names which defines the functionality of the function
+
     # Postman Link: https://www.getpostman.com/collections/6e5c383261608f914df7
+    
+    # Github Link: https://github.com/anurag8867/orders_ecommerce_flow.
 
     # Write comments in the code on how you will handle race conditions?
         * Check If product Exists
