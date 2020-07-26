@@ -3,6 +3,9 @@ const orderService = require('./order');
 
 class ProductService {
 
+    /**
+     * To add product into inventory
+     */
     async addProduct({ name, count }) {
         try {
             return await productRepo.addProduct({ name, count });
@@ -15,10 +18,16 @@ class ProductService {
         }
     }
 
+    /**
+     * To place an order
+     */
     async getProducts() {
         return await productRepo.getProducts();
     }
 
+    /**
+     * To place an order
+     */
     async placeOrder({ productId, userId }) {
         let resp;
 
@@ -28,7 +37,9 @@ class ProductService {
         return resp;
     }
 
-
+    /**
+     * To place an order
+     */
     async getPlacedOrders({ userId }) {
         return await productRepo.getPlacedOrders({ userId });
     }

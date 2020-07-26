@@ -10,6 +10,7 @@ class ProductRepo {
 
         let transaction = null;
         try {
+
             let [product, order] = await Promise.all([
                 inventory.findOne({ where: { id: inventory_id, deleted_at: null } }),
                 orders.findOne({ where: { inventory_id, user_id, deleted_at: null } })
@@ -38,9 +39,10 @@ class ProductRepo {
 
                 parallelQuery.push(orders.create({ inventory_id, user_id }, { transaction }));
             }
-            let resp = await Promise.all(parallelQuery);
+            let [inventoryResp, orderResp] = await Promise.all(parallelQuery);
             await transaction.commit();
-            return resp;
+            return { inventoryResp, orderResp };
+
         } catch (e) {
             if (transaction) {
                 await transaction.rollback();
