@@ -1,5 +1,9 @@
 # orders_ecommerce_flow
 
+    # Run :
+        * npm i
+        * npm start
+        
     # DBMS :
         * SQL(MYSQL)
         * ORM Sequelize
@@ -20,6 +24,8 @@
         * Race Condition avilable options:
             * async-mutex (Currently Used)
             * Message Queue (Redis server)
+            * Stored Procedure
+            * Message Queue with Kue.js
             * Throttle
             * Debounce
     

@@ -123,12 +123,12 @@ function main() {
      */
     app.get('/order', async (req, res) => {
         try {
-            let missingField = req.body.userId ? null : 'userId';
+            let missingField = req.query.userId ? null : 'userId';
             if (missingField) throw {
-                message: `${missingField} field is missing from body params`,
+                message: `${missingField} field is missing from query params`,
                 status: 400
             }
-            let { userId } = req.body;
+            let { userId } = req.query;
             let resp = await productService.getPlacedOrders({ userId });
             return res.status(resp && resp.status || 200).send({ resp });
         } catch (e) {
